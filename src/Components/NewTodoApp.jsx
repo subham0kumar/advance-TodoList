@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useDebugValue, useState } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import { HiOutlinePlusCircle } from "react-icons/hi";
@@ -127,7 +127,10 @@ const TodoApp = () => {
           You can drag and drop tasks form one list to another
         </h2>
         {showNewListForm ? (
-          <form onSubmit={handleNewList} className="my-4 flex">
+          <form
+            onSubmit={handleNewList}
+            className="items-center px-4 my-4 mx-2 flex sm:flex-row flex-col space-y-3"
+          >
             <input
               autoFocus
               type="text"
@@ -196,7 +199,7 @@ const TodoApp = () => {
                 Add New Task
               </button>
               {showNewTaskForm === list.id && (
-                <div className="mb-4 flex items-start justify-between">
+                <div className="mb-4 flex flex-col sm:flex-row sm:items-start items-center justify-between space-y-3 sm:space-x-3">
                   <span className="w-[75%]">
                     {" "}
                     <input
@@ -227,7 +230,7 @@ const TodoApp = () => {
               )}
 
               <DropArea onDrop={() => onDrop(list.id, 0)} />
-              <ul>
+              <ul key={index}>
                 {list.tasks.map((task, index) => (
                   <>
                     <li key={index}>

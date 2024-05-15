@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import DropArea from "./DropArea";
 
@@ -11,19 +11,12 @@ const Tasks = ({
   onDrop,
   setActiveList,
 }) => {
+  const [isComplete, setIsComplete] = useState(false);
   return (
     <>
       <section
         className="mb-2 flex items-start justify-between bg-[#242424] rounded-md pt-2 pb-1 active:opacity-0.7 cursor-grab"
         draggable
-        onTouchStart={() => {
-          setActiveCard(taskID);
-          setActiveList(listID);
-        }}
-        onTouchEnd={() => {
-          setActiveCard(null);
-          setActiveList(null);
-        }}
         onDragStart={() => {
           setActiveCard(taskID);
           setActiveList(listID);
@@ -34,7 +27,11 @@ const Tasks = ({
         }}
       >
         {/* <h3>{listID}</h3> */}
-        <input type="checkbox" className="my-3 mx-2" />{" "}
+        <input
+          type="checkbox"
+          onChange={() => setIsComplete(true)}
+          className="my-3 mx-2"
+        />{" "}
         <span className="w-full px-4 flex flex-col">
           <h3 className="text-lg tracking-wider">{tasks.title}</h3>{" "}
           <p className="font-acorn tracking-wider">{tasks.details}</p>
