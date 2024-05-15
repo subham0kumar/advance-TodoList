@@ -230,7 +230,7 @@ const TodoApp = () => {
               )}
 
               <DropArea onDrop={() => onDrop(list.id, 0)} />
-              <ul key={index}>
+              <ul key={list.id}>
                 {list.tasks.map((task, index) => (
                   <>
                     <li key={index}>
