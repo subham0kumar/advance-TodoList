@@ -111,7 +111,7 @@ const TodoApp = () => {
   };
 
   return (
-    <div className="w-[96vw] font-poppins">
+    <div className="w-[100vw] font-poppins">
       <div className=" flex flex-col items-center justify-center container mx-auto p-4">
         <button
           onClick={() => setShowNewListForm(true)}
