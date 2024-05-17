@@ -4,8 +4,6 @@ const DropArea = ({ onDrop }) => {
   const [showDrop, setShowDrop] = useState(false);
   return (
     <section
-      onTouchMove={() => setShowDrop(true)}
-      onTouchCancel={() => setShowDrop(false)}
       onDragEnter={() => setShowDrop(true)}
       onDragLeave={() => setShowDrop(false)}
       onDrop={() => {
